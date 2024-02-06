@@ -78,7 +78,7 @@ pipeline{
                 script{
                     sh '''
                     echo 'Push artifacts to Jfrog Repo'
-                    curl -X PUT -u admin -T /var/lib/jenkins/workspace/CI_Pipeline/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://13.201.189.115:8082/artifactory/example-repo-local
+                    curl -X PUT -u admin:Admin@12345 -T /var/lib/jenkins/workspace/CI_Pipeline/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://13.201.189.115:8082/artifactory/example-repo-local
                     '''
                 }
             }

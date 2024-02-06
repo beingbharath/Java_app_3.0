@@ -78,7 +78,7 @@ pipeline{
                 script{
                    rtServer (
     id: 'Artifactory-1',
-    url: 'http://13.201.189.115:8081/artifactory',
+    url: 'http://13.201.189.115:8081/',
         // If you're using username and password:
     username: 'admin',
     password: 'Admin@12345',

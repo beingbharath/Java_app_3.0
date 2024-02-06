@@ -102,7 +102,7 @@ pipeline{
           "files": [
             {
               "pattern": "/var/lib/jenkins/workspace/CI_Pipeline/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar",
-              "target": "artifactory/example-repo-local/"
+              "target": "example-repo-local/"
             }
          ]
     }''',

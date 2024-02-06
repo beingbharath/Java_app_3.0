@@ -73,13 +73,23 @@ pipeline{
                }
             }
         }
-        stage('Push the artifacts'){
+        stage('Connect to Jfrog'){
            steps{
                 script{
-                    sh '''
-                    echo 'Push artifacts to Jfrog Repo'
-                    curl -X PUT -T /var/lib/jenkins/workspace/CI_Pipeline/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar http://13.201.189.115:8082/artifactory/example-repo-local
-                    '''
+                   rtServer (
+    id: 'Artifactory-1',
+    url: 'http://13.201.189.115:8081/artifactory',
+        // If you're using username and password:
+    username: 'admin',
+    password: 'Admin@12345',
+        // If you're using Credentials ID:
+        //  credentialsId: 'ccrreeddeennttiiaall',
+        // If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:
+        bypassProxy: true,
+        // Configure the connection timeout (in seconds).
+        // The default value (if not configured) is 300 seconds: 
+        timeout: 300
+)
                 }
             }
         }
